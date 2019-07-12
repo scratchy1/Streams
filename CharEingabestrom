@@ -1,0 +1,3 @@
+interface CharEingabeStrom {
+   int read() throws IOException;
+}

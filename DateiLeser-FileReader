@@ -1,0 +1,10 @@
+public class DateiLeser implements CharEingabeStrom {
+private FileReader quelle;
+public DateiLeser(String dateiName) throws IOException {
+quelle = new FileReader(dateiName);
+}
+@Override
+public int read() throws IOException {
+return quelle.read();
+}
+}

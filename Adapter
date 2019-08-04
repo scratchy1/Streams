@@ -1,0 +1,18 @@
+package ströme;
+
+import java.io.IOException;
+import java.io.*;
+
+public class Adapter2 implements CharEingabeStrom {
+ //übersetzt InputStreamReader in CharEingabeströme
+    private InputStreamReader quelle;
+
+    public Adapter2(InputStreamReader quelle) {
+    this.quelle = quelle;
+    }
+
+    @Override
+    public int read() throws IOException {
+        return quelle.read();
+    }
+}

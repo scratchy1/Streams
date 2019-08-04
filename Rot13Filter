@@ -1,0 +1,23 @@
+package ströme;
+
+import java.io.IOException;
+
+public class Rot13Filter implements CharEingabeStrom {
+    //verschiebt Großbuchstaben um 13 Stellen nach vorn im Alphabet (ASCI-Format)
+    private CharEingabeStrom urquelle;
+
+    public Rot13Filter(CharEingabeStrom urquelle) {
+        this.urquelle = urquelle;
+    }
+
+    @Override
+    public int read() throws IOException {
+        int zeichen = urquelle.read();
+        if (zeichen == -1)
+            return -1;
+        zeichen = zeichen - 65;
+        zeichen = (zeichen + 13) % 26;
+        zeichen = zeichen + 65;
+        return (char) zeichen;
+    }
+}

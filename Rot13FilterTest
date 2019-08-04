@@ -1,0 +1,11 @@
+public class Rot13FilterTest1 {
+
+    public static void main(String[] args) {
+        int zeichen = 'N';
+        zeichen = zeichen - 65;
+        zeichen = (zeichen + 13) % 26;
+        zeichen = zeichen + 65;
+        System.out.println((char) zeichen);
+
+    }
+}

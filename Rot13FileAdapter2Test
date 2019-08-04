@@ -1,0 +1,20 @@
+public class Rot13FileAdapter2Test {
+
+    public static void main(String[] args) throws IOException{
+        FileOutputStream fos = new FileOutputStream("testout.txt");
+        OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+        FileInputStream fis = new FileInputStream("testin.txt");
+        InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+        Adapter2 adapter = new Adapter2(isr);
+        CharEingabeStrom cs = new UmlautSZFilter(adapter);
+        cs = new GrossBuchstabenFilter(cs);
+        cs = new Rot13Filter(cs);
+        int zeichen = -1;
+        while ((zeichen = cs.read()) != -1) {
+        osw.write(zeichen);
+        }
+        isr.close();
+        osw.close();
+        }
+
+    }
